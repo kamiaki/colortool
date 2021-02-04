@@ -18,14 +18,15 @@ import java.util.Map;
 
 public class ColorTool {
     public static void main(String[] args) throws FileNotFoundException {
-        Color color1 = new Color(255, 0, 0, 255);
-        Color color2 = new Color(255, 242, 0, 255);
-        Color color3 = new Color(8, 255, 0, 255);
-        Color color4 = new Color(0, 255, 247, 255);
-        Color color5 = new Color(0, 55, 255, 255);
-        Color color6 = new Color(200, 0, 255, 255);
-        Color[] colors = new Color[]{color1, color2, color3, color4, color5, color6};
-        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 100, 1);
+        Color color1 = new Color(255, 0, 0, 0);
+        Color color2 = new Color(208, 0, 255, 0);
+        Color color3 = new Color(0, 34, 255, 64);
+        Color color4 = new Color(0, 255, 217, 128);
+        Color color5 = new Color(17, 255, 0, 191);
+        Color color6 = new Color(255, 230, 0, 255);
+        Color color7 = new Color(255, 0, 0, 255);
+        Color[] colors = new Color[]{color1, color2, color3, color4, color5, color6, color7};
+        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 80, 10);
         System.out.println(colorStrArray);
         List<ColorInfo> colorInfos = (List<ColorInfo>) colorStrArray.get("colorInfos");
         File file = new File("d:\\color_options.xlsx");
@@ -71,7 +72,7 @@ public class ColorTool {
             int greenTmp;
             int blueTmp;
             int alphaTmp;
-            for (int j = 0; j < colorIntervalStepLen; j++) {
+            for (int j = 0; j < Math.floor(colorIntervalStepLen); j++) {
                 redTmp = (int) Math.round(redS + redStep * j);
                 greenTmp = (int) Math.round(greenS + greenStep * j);
                 blueTmp = (int) Math.round(blueS + blueStep * j);
@@ -80,6 +81,8 @@ public class ColorTool {
                 colorList.add(color);
             }
         }
+        colorList.add(colors[colorLen - 1]);// 因为循环最后取不到最后一个值，所以最后要写上最后一个值
+        // 输出excel用
         List<ColorInfo> colorInfos = new LinkedList<>();
         for (int i = 0; i < colorList.size(); i++) {
             double v1 = minValue;
