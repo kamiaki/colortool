@@ -1,25 +1,36 @@
 package org.example;
 
 
+import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 public class ColorTool {
-    public static void main(String[] args) {
-        Color color1 = new Color(205, 20, 20, 50);
-        Color color2 = new Color(160, 155, 57, 100);
-        Color color3 = new Color(23, 81, 208, 255);
-        Color[] colors = new Color[]{color1, color2, color3};
-        Map colorStrArray = new ColorTool().createColorStrArray(colors, 20, 100, 0.5);
+    public static void main(String[] args) throws FileNotFoundException {
+        Color color1 = new Color(255, 0, 0, 255);
+        Color color2 = new Color(255, 242, 0, 255);
+        Color color3 = new Color(8, 255, 0, 255);
+        Color color4 = new Color(0, 255, 247, 255);
+        Color color5 = new Color(0, 55, 255, 255);
+        Color color6 = new Color(200, 0, 255, 255);
+        Color[] colors = new Color[]{color1, color2, color3, color4, color5, color6};
+        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 100, 1);
         System.out.println(colorStrArray);
+        List<ColorInfo> colorInfos = (List<ColorInfo>) colorStrArray.get("colorInfos");
+        File file = new File("d:\\color_options.xlsx");
+        FileOutputStream outputStream = new FileOutputStream(file);
+        EasyExcel.write(outputStream, ColorInfo.class).sheet("站点数据").doWrite(colorInfos);
     }
 
     /**
@@ -80,6 +91,8 @@ public class ColorTool {
             colorInfo.setA(colorList.get(i).getAlpha());
             colorInfo.setValueMin(v1);
             colorInfo.setValueMax(v2);
+            colorInfo.setId(0);
+            colorInfo.setType("AQI");
             colorInfos.add(colorInfo);
         }
         map.put("colorList", colorList);
@@ -100,12 +113,12 @@ public class ColorTool {
         @ExcelProperty(index = 3,value = "VALUE_MAX")
         private double valueMax;
         @ExcelProperty(index = 4,value = "R")
-        private int R;
+        private int r;
         @ExcelProperty(index = 5,value = "G")
-        private int G;
+        private int g;
         @ExcelProperty(index = 6,value = "B")
-        private int B;
+        private int b;
         @ExcelProperty(index = 7,value = "A")
-        private int A;
+        private int a;
     }
 }
