@@ -1,6 +1,7 @@
 package org.example;
 
 
+import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +14,9 @@ import java.util.Map;
 
 public class ColorTool {
     public static void main(String[] args) {
-        Color color1 = new Color(205, 20, 20);
-        Color color2 = new Color(160, 155, 57);
-        Color color3 = new Color(23, 81, 208);
+        Color color1 = new Color(205, 20, 20, 50);
+        Color color2 = new Color(160, 155, 57, 100);
+        Color color3 = new Color(23, 81, 208, 255);
         Color[] colors = new Color[]{color1, color2, color3};
         Map colorStrArray = new ColorTool().createColorStrArray(colors, 20, 100, 0.5);
         System.out.println(colorStrArray);
@@ -46,20 +47,25 @@ public class ColorTool {
             int redS = colors[i].getRed();
             int greenS = colors[i].getGreen();
             int blueS = colors[i].getBlue();
+            int alphaS = colors[i].getAlpha();
             int redE = colors[i + 1].getRed();
             int greenE = colors[i + 1].getGreen();
             int blueE = colors[i + 1].getBlue();
+            int alphaE = colors[i + 1].getAlpha();
             double redStep = (redE - redS) / colorIntervalStepLen;
             double greenStep = (greenE - greenS) / colorIntervalStepLen;
             double blueStep = (blueE - blueS) / colorIntervalStepLen;
+            double alphaStep = (alphaE - alphaS) / colorIntervalStepLen;
             int redTmp;
             int greenTmp;
             int blueTmp;
+            int alphaTmp;
             for (int j = 0; j < colorIntervalStepLen; j++) {
                 redTmp = (int) Math.round(redS + redStep * j);
                 greenTmp = (int) Math.round(greenS + greenStep * j);
                 blueTmp = (int) Math.round(blueS + blueStep * j);
-                Color color = new Color(redTmp, greenTmp, blueTmp);
+                alphaTmp = (int) Math.round(alphaS + alphaStep * j);
+                Color color = new Color(redTmp, greenTmp, blueTmp, alphaTmp);
                 colorList.add(color);
             }
         }
@@ -71,6 +77,7 @@ public class ColorTool {
             colorInfo.setR(colorList.get(i).getRed());
             colorInfo.setG(colorList.get(i).getGreen());
             colorInfo.setB(colorList.get(i).getBlue());
+            colorInfo.setA(colorList.get(i).getAlpha());
             colorInfo.setValueMin(v1);
             colorInfo.setValueMax(v2);
             colorInfos.add(colorInfo);
@@ -84,10 +91,21 @@ public class ColorTool {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class ColorInfo {
-        private int R;
-        private int G;
-        private int B;
+        @ExcelProperty(index = 0,value = "ID")
+        private int id;
+        @ExcelProperty(index = 1,value = "TYPE")
+        private String type;
+        @ExcelProperty(index = 2,value = "VALUE_MIN")
         private double valueMin;
+        @ExcelProperty(index = 3,value = "VALUE_MAX")
         private double valueMax;
+        @ExcelProperty(index = 4,value = "R")
+        private int R;
+        @ExcelProperty(index = 5,value = "G")
+        private int G;
+        @ExcelProperty(index = 6,value = "B")
+        private int B;
+        @ExcelProperty(index = 7,value = "A")
+        private int A;
     }
 }
