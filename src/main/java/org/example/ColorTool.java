@@ -22,11 +22,14 @@ public class ColorTool {
         Color color2 = new Color(208, 0, 255, 0);
         Color color3 = new Color(0, 34, 255, 64);
         Color color4 = new Color(0, 255, 217, 128);
-        Color color5 = new Color(17, 255, 0, 191);
+        Color color5 = new Color(157, 255, 0, 191);
         Color color6 = new Color(255, 230, 0, 255);
-        Color color7 = new Color(255, 0, 0, 255);
-        Color[] colors = new Color[]{color1, color2, color3, color4, color5, color6, color7};
-        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 80, 10);
+        Color color7 = new Color(255, 170, 0, 255);
+        Color color8 = new Color(238, 0, 255, 255);
+        Color color9 = new Color(255, 0, 183, 255);
+        Color color10 = new Color(255, 0, 0, 255);
+        Color[] colors = new Color[]{color1, color2, color3, color4, color5, color6, color7, color8, color9, color10};
+        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 100, 1);
         System.out.println(colorStrArray);
         List<ColorInfo> colorInfos = (List<ColorInfo>) colorStrArray.get("colorInfos");
         File file = new File("d:\\color_options.xlsx");
