@@ -28,8 +28,12 @@ public class ColorTool {
         Color color8 = new Color(238, 0, 255, 255);
         Color color9 = new Color(255, 0, 183, 255);
         Color color10 = new Color(255, 0, 0, 255);
-        Color[] colors = new Color[]{color1, color2, color3, color4, color5, color6, color7, color8, color9, color10};
-        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 100, 1);
+        Color color11 = new Color(217, 0, 255, 255);
+        Color color12 = new Color(0, 255, 85, 255);
+        Color color13 = new Color(136, 255, 0, 255);
+        Color[] colors = new Color[]{color1, color2, color3, color4,
+        color5, color6, color7, color8, color9, color10, color11, color12, color13};
+        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 13, 1);
         System.out.println(colorStrArray);
         List<ColorInfo> colorInfos = (List<ColorInfo>) colorStrArray.get("colorInfos");
         File file = new File("d:\\color_options.xlsx");
@@ -97,7 +101,7 @@ public class ColorTool {
             colorInfo.setA(colorList.get(i).getAlpha());
             colorInfo.setValueMin(v1);
             colorInfo.setValueMax(v2);
-            colorInfo.setId(0);
+            colorInfo.setId(i);
             colorInfo.setType("AQI");
             colorInfos.add(colorInfo);
         }
