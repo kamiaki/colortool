@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.awt.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.Map;
  * 这些颜色，你如果放上去了一定会有，但是你放上去的值可能会被吞掉，如果除不尽的话
  */
 public class ColorTool {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         Color color1 = new Color(255, 0, 0, 0);
         Color color2 = new Color(0, 163, 232, 255);
         Color color3 = new Color(0, 255, 67, 255);
@@ -36,10 +36,10 @@ public class ColorTool {
         Color color13 = new Color(0, 0, 0, 255);
         Color[] colors = new Color[]{color1, color2, color3, color4,
         color5, color6, color7, color8, color9, color10, color11, color12, color13};
-        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 14, 1);
+        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 1000, 80);
         System.out.println(colorStrArray);
         List<ColorInfo> colorInfos = (List<ColorInfo>) colorStrArray.get("colorInfos");
-        File file = new File("d:\\color_options.xlsx");
+        File file = new File(new File("").getCanonicalPath() + "\\options.xlsx");
         FileOutputStream outputStream = new FileOutputStream(file);
         EasyExcel.write(outputStream, ColorInfo.class).sheet("站点数据").doWrite(colorInfos);
     }
