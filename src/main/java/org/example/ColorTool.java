@@ -16,6 +16,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 这些颜色，你如果放上去了一定会有，但是你放上去的值可能会被吞掉，如果除不尽的话
+ */
 public class ColorTool {
     public static void main(String[] args) throws FileNotFoundException {
         Color color1 = new Color(255, 0, 0, 0);
