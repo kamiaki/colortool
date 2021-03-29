@@ -21,22 +21,82 @@ import java.util.Map;
  */
 public class ColorTool {
     public static void main(String[] args) throws IOException {
-        Color color1 = new Color(255, 0, 0, 0);
-        Color color2 = new Color(0, 163, 232, 255);
-        Color color3 = new Color(0, 255, 67, 255);
-        Color color4 = new Color(35, 177, 7, 255);
-        Color color5 = new Color(253, 242, 4, 255);
-        Color color6 = new Color(255, 127, 40, 255);
-        Color color7 = new Color(238, 26, 34, 255);
-        Color color8 = new Color(255, 0, 252, 255);
-        Color color9 = new Color(160, 74, 163, 255);
-        Color color10 = new Color(122, 11, 4, 255);
-        Color color11 = new Color(163, 100, 9, 255);
-        Color color12 = new Color(18, 82, 7, 255);
-        Color color13 = new Color(0, 0, 0, 255);
-        Color[] colors = new Color[]{color1, color2, color3, color4,
-        color5, color6, color7, color8, color9, color10, color11, color12, color13};
-        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 1000, 80);
+//        // 预警
+//        Color color2 = new Color(224, 232, 0, 77);
+//        Color color3 = new Color(255, 89, 0, 166);
+//        Color color4 = new Color(177, 7, 7, 255);
+//        Color[] colors = new Color[]{ color2, color3, color4};
+
+        // 长沙雷达组合反射率拼图
+        Color color2 = new Color(0, 161, 247, 255);
+        Color color3 = new Color(0, 237, 237, 255);
+        Color color4 = new Color(0, 217, 0, 255);
+        Color color5 = new Color(0, 145, 0, 255);
+        Color color6 = new Color(255, 255, 0, 255);
+        Color color7 = new Color(231, 193, 0, 255);
+        Color color8 = new Color(255, 145, 0, 255);
+        Color color9 = new Color(255, 0, 0, 255);
+        Color color10 = new Color(215, 0, 0, 255);
+        Color color11 = new Color(193, 0, 0, 255);
+        Color color12 = new Color(255, 0, 241, 255);
+        Color color13 = new Color(151, 0, 181, 255);
+        Color color14 = new Color(173, 145, 241, 255);
+        Color[] colors = new Color[]{ color2, color3, color4,
+                color5, color6, color7, color8, color9, color10, color11, color12, color13, color14};
+
+
+//        Color color2 = new Color(0, 163, 232, 255);
+//        Color color3 = new Color(0, 255, 67, 255);
+//        Color color4 = new Color(35, 177, 7, 255);
+//        Color color5 = new Color(253, 242, 4, 255);
+//        Color color6 = new Color(255, 127, 40, 255);
+//        Color color7 = new Color(238, 26, 34, 255);
+//        Color color8 = new Color(255, 0, 252, 255);
+//        Color color9 = new Color(160, 74, 163, 255);
+//        Color color10 = new Color(122, 11, 4, 255);
+//        Color color11 = new Color(163, 100, 9, 255);
+//        Color color12 = new Color(18, 82, 7, 255);
+//        Color color13 = new Color(0, 0, 0, 255);
+//        Color[] colors = new Color[]{ color2, color3, color4,
+//                color5, color6, color7, color8, color9, color10, color11, color12, color13};
+
+//        Color color1 = new Color(0, 163, 232, 0);
+//        Color color2 = new Color(0, 163, 232, 255);
+//        Color color3 = new Color(0, 255, 67, 255);
+//        Color color4 = new Color(35, 177, 7, 255);
+//        Color color5 = new Color(253, 242, 4, 255);
+//        Color color6 = new Color(255, 127, 40, 255);
+//        Color color7 = new Color(238, 26, 34, 255);
+//        Color color8 = new Color(255, 0, 252, 255);
+//        Color color9 = new Color(160, 74, 163, 255);
+//        Color color10 = new Color(122, 11, 4, 255);
+//        Color color11 = new Color(163, 100, 9, 255);
+//        Color color12 = new Color(18, 82, 7, 255);
+//        Color color13 = new Color(0, 0, 0, 255);
+//        Color[] colors = new Color[]{color1, color2, color3, color4,
+//                color5, color6, color7, color8, color9, color10, color11, color12, color13};
+
+
+//        Color color1 = new Color(255, 0, 0, 0);
+//        Color color2 = new Color(0, 163, 232, 255);
+//        Color color3 = new Color(0, 255, 67, 255);
+//        Color color4 = new Color(35, 177, 7, 255);
+//        Color color5 = new Color(253, 242, 4, 255);
+//        Color color6 = new Color(255, 127, 40, 255);
+//        Color color7 = new Color(238, 26, 34, 255);
+//        Color color8 = new Color(255, 0, 252, 255);
+//        Color[] colors = new Color[]{
+//                color1, color2, color3, color4,
+//                color5, color6, color7, color8};
+
+//        Color color0 = new Color(0, 232, 232, 0);
+//        Color color2 = new Color(0, 232, 232, 255);
+//        Color color3 = new Color(0, 50, 232, 255);
+//        Color color4 = new Color(108, 0, 255, 255);
+//        Color[] colors = new Color[]{
+//                color0,  color2, color3, color4};
+
+        Map colorStrArray = new ColorTool().createColorStrArray(colors, 10, 70, 5);
         System.out.println(colorStrArray);
         List<ColorInfo> colorInfos = (List<ColorInfo>) colorStrArray.get("colorInfos");
         File file = new File(new File("").getCanonicalPath() + "\\options.xlsx");
@@ -117,21 +177,21 @@ public class ColorTool {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class ColorInfo {
-        @ExcelProperty(index = 0,value = "ID")
+        @ExcelProperty(index = 0, value = "ID")
         private int id;
-        @ExcelProperty(index = 1,value = "TYPE")
+        @ExcelProperty(index = 1, value = "TYPE")
         private String type;
-        @ExcelProperty(index = 2,value = "VALUE_MIN")
+        @ExcelProperty(index = 2, value = "VALUE_MIN")
         private double valueMin;
-        @ExcelProperty(index = 3,value = "VALUE_MAX")
+        @ExcelProperty(index = 3, value = "VALUE_MAX")
         private double valueMax;
-        @ExcelProperty(index = 4,value = "R")
+        @ExcelProperty(index = 4, value = "R")
         private int r;
-        @ExcelProperty(index = 5,value = "G")
+        @ExcelProperty(index = 5, value = "G")
         private int g;
-        @ExcelProperty(index = 6,value = "B")
+        @ExcelProperty(index = 6, value = "B")
         private int b;
-        @ExcelProperty(index = 7,value = "A")
+        @ExcelProperty(index = 7, value = "A")
         private int a;
     }
 }
