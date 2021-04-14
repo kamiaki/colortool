@@ -21,44 +21,51 @@ import java.util.Map;
  */
 public class ColorTool {
     public static void main(String[] args) throws IOException {
+//                // 电场
+//        Color color2 = new Color(0, 77, 232, 0);
+//        Color color4 = new Color(0, 26, 255, 255);
+//        Color[] colors = new Color[]{ color2, color4};
+
 //        // 预警
-//        Color color2 = new Color(224, 232, 0, 77);
-//        Color color3 = new Color(255, 89, 0, 166);
-//        Color color4 = new Color(177, 7, 7, 255);
+//        Color color2 = new Color(224, 232, 0, 0);
+//        Color color3 = new Color(255, 89, 0, 128);
+//        Color color4 = new Color(255, 0, 0, 255);
 //        Color[] colors = new Color[]{ color2, color3, color4};
 
-        // 长沙雷达组合反射率拼图
-        Color color2 = new Color(0, 161, 247, 255);
-        Color color3 = new Color(0, 237, 237, 255);
-        Color color4 = new Color(0, 217, 0, 255);
-        Color color5 = new Color(0, 145, 0, 255);
-        Color color6 = new Color(255, 255, 0, 255);
-        Color color7 = new Color(231, 193, 0, 255);
-        Color color8 = new Color(255, 145, 0, 255);
-        Color color9 = new Color(255, 0, 0, 255);
-        Color color10 = new Color(215, 0, 0, 255);
-        Color color11 = new Color(193, 0, 0, 255);
-        Color color12 = new Color(255, 0, 241, 255);
-        Color color13 = new Color(151, 0, 181, 255);
-        Color color14 = new Color(173, 145, 241, 255);
-        Color[] colors = new Color[]{ color2, color3, color4,
-                color5, color6, color7, color8, color9, color10, color11, color12, color13, color14};
-
-
-//        Color color2 = new Color(0, 163, 232, 255);
-//        Color color3 = new Color(0, 255, 67, 255);
-//        Color color4 = new Color(35, 177, 7, 255);
-//        Color color5 = new Color(253, 242, 4, 255);
-//        Color color6 = new Color(255, 127, 40, 255);
-//        Color color7 = new Color(238, 26, 34, 255);
-//        Color color8 = new Color(255, 0, 252, 255);
-//        Color color9 = new Color(160, 74, 163, 255);
-//        Color color10 = new Color(122, 11, 4, 255);
-//        Color color11 = new Color(163, 100, 9, 255);
-//        Color color12 = new Color(18, 82, 7, 255);
-//        Color color13 = new Color(0, 0, 0, 255);
+//        // 长沙雷达组合反射率拼图
+//        Color color2 = new Color(0, 161, 247, 255);
+//        Color color3 = new Color(0, 237, 237, 255);
+//        Color color4 = new Color(0, 217, 0, 255);
+//        Color color5 = new Color(0, 145, 0, 255);
+//        Color color6 = new Color(255, 255, 0, 255);
+//        Color color7 = new Color(231, 193, 0, 255);
+//        Color color8 = new Color(255, 145, 0, 255);
+//        Color color9 = new Color(255, 0, 0, 255);
+//        Color color10 = new Color(215, 0, 0, 255);
+//        Color color11 = new Color(193, 0, 0, 255);
+//        Color color12 = new Color(255, 0, 241, 255);
+//        Color color13 = new Color(151, 0, 181, 255);
+//        Color color14 = new Color(173, 145, 241, 255);
 //        Color[] colors = new Color[]{ color2, color3, color4,
-//                color5, color6, color7, color8, color9, color10, color11, color12, color13};
+//                color5, color6, color7, color8, color9, color10, color11, color12, color13, color14};
+
+
+        // 雷电强度
+        Color color1 = new Color(0, 163, 232, 255);
+        Color color2 = new Color(0, 163, 232, 255);
+        Color color3 = new Color(0, 203, 161, 255);
+        Color color4 = new Color(0, 255, 67, 255);
+        Color color5 = new Color(15, 221, 41, 255);
+        Color color6 = new Color(35, 177, 7, 255);
+        Color color7 = new Color(129, 205, 6, 255);
+        Color color8 = new Color(253, 242, 4, 255);
+        Color color9 = new Color(254, 193, 19, 255);
+        Color color10 = new Color(255, 127, 40, 255);
+        Color color11 = new Color(248, 84, 37, 255);
+        Color color12 = new Color(238, 26, 34, 255);
+        Color color13 = new Color(245, 15, 128, 255);
+        Color[] colors = new Color[]{color1, color2, color3, color4,
+                color5, color6, color7, color8, color9, color10, color11, color12, color13};
 
 //        Color color1 = new Color(0, 163, 232, 0);
 //        Color color2 = new Color(0, 163, 232, 255);
@@ -96,7 +103,7 @@ public class ColorTool {
 //        Color[] colors = new Color[]{
 //                color0,  color2, color3, color4};
 
-        Map colorStrArray = new ColorTool().createColorStrArray(colors, 10, 70, 5);
+        Map colorStrArray = new ColorTool().createColorStrArray(colors, 0, 65, 5);
         System.out.println(colorStrArray);
         List<ColorInfo> colorInfos = (List<ColorInfo>) colorStrArray.get("colorInfos");
         File file = new File(new File("").getCanonicalPath() + "\\options.xlsx");
